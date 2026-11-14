@@ -41,8 +41,8 @@ Rectangle
     /* The entry keeps the height its icon asks for, and the icon is drawn
        smaller inside it, with air around: at full height it was twice the
        size of the text and the entries looked piled up */
-    readonly property real iconScale: 0.85
-    readonly property int sidePadding: 7
+    property real iconScale: 0.65
+    property int sidePadding: 10
     property int itemWidth: entryRow.width + 20
 
     signal clicked
@@ -99,7 +99,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment: Text.AlignHCenter
             font.family: UISettings.fontAwesomeFontName
-            font.pixelSize: baseMenuEntry.height * 0.68
+            font.pixelSize: baseMenuEntry.height * 0.80 * iconScale
             text: faSource
         }
 
