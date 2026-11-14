@@ -29,6 +29,7 @@
 #include <QLibraryInfo>
 #include <QTranslator>
 #include <QQmlContext>
+#include <QQmlProperty>
 #include <QQuickItem>
 #include <QSettings>
 #include <QOpenGLFunctions>
@@ -548,8 +549,12 @@ void App::updateScreenEdgeMargin()
     const int top = fullScreen ? SCREEN_EDGE_MARGIN : 0;
 #endif
 
-    root->setPosition(QPointF(side, top));
-    root->setSize(QSizeF(qMax(0, width() - (2 * side)), qMax(0, height() - top - side)));
+    // MainView fills its parent with anchors, which own its geometry:
+    // the margins are the only way to move it
+    QQmlProperty(root, "anchors.leftMargin").write(side);
+    QQmlProperty(root, "anchors.rightMargin").write(side);
+    QQmlProperty(root, "anchors.topMargin").write(top);
+    QQmlProperty(root, "anchors.bottomMargin").write(side);
 }
 
 void App::mousePressEvent(QMouseEvent *e)
