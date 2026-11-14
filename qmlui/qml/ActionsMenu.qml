@@ -279,7 +279,6 @@ Popup
            reverse order, since the parent bindings evaluate bottom-up */
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             id: fileMenuEntry
             visible: menuRoot.compactMode
             height: visible ? iconHeight + 6 : 0
@@ -301,7 +300,6 @@ Popup
 
             ContextMenuEntry
             {
-                iconScale: 1.0; sidePadding: 5
                 id: fileNew
                 imgSource: "qrc:/filenew.svg"
                 entryText: qsTr("New project")
@@ -322,7 +320,6 @@ Popup
 
             ContextMenuEntry
             {
-                iconScale: 1.0; sidePadding: 5
                 id: fileOpen
                 imgSource: "qrc:/fileopen.svg"
                 entryText: qsTr("Open file")
@@ -356,7 +353,6 @@ Popup
                             delegate:
                                 ContextMenuEntry
                                 {
-                                    iconScale: 1.0; sidePadding: 5
                                     entryText: modelData
                                     onClicked:
                                     {
@@ -379,7 +375,6 @@ Popup
 
             ContextMenuEntry
             {
-                iconScale: 1.0; sidePadding: 5
                 id: fileSave
                 imgSource: "qrc:/filesave.svg"
                 entryText: qsTr("Save project")
@@ -394,7 +389,6 @@ Popup
 
             ContextMenuEntry
             {
-                iconScale: 1.0; sidePadding: 5
                 id: fileSaveAs
                 imgSource: "qrc:/filesaveas.svg"
                 entryText: qsTr("Save project as...")
@@ -409,7 +403,6 @@ Popup
 
             ContextMenuEntry
             {
-                iconScale: 1.0; sidePadding: 5
                 id: fileImport
                 imgSource: "qrc:/import.svg"
                 entryText: qsTr("Import from project")
@@ -446,7 +439,6 @@ Popup
 
             ContextMenuEntry
             {
-                iconScale: 1.0; sidePadding: 5
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 imgSource: "qrc:/undo.svg"
@@ -461,7 +453,6 @@ Popup
             }
             ContextMenuEntry
             {
-                iconScale: 1.0; sidePadding: 5
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 imgSource: "qrc:/redo.svg"
@@ -477,7 +468,6 @@ Popup
         }
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             id: netEntry
             imgSource: "qrc:/network.svg"
             //faSource: FontAwesome.fa_network_wired
@@ -504,7 +494,6 @@ Popup
 
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         id: startServer
                         entryText: qsTr("Server setup")
 
@@ -523,7 +512,6 @@ Popup
 
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         id: connectToServer
                         entryText: qsTr("Client setup")
 
@@ -545,7 +533,6 @@ Popup
 
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             imgSource: "qrc:/diptool.svg"
             entryText: qsTr("Address tool")
             onEntered: submenuItem = null
@@ -569,7 +556,6 @@ Popup
 
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             id: startupConfig
             imgSource: "qrc:/fileopen.svg"
             entryText: qsTr("Project at startup")
@@ -584,7 +570,6 @@ Popup
 
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             id: graphicsConfig
             visible: Qt.platform.os === "windows"
             height: visible ? iconHeight + 6 : 0
@@ -600,7 +585,6 @@ Popup
 
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             id: uiConfig
             imgSource: "qrc:/configure.svg"
             entryText: qsTr("UI Settings")
@@ -614,7 +598,6 @@ Popup
 
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             id: fullScreen
             faSource: FontAwesome.fa_maximize
             faColor: UISettings.fgLight
@@ -629,7 +612,6 @@ Popup
 
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             id: langEntry
             faSource: FontAwesome.fa_earth_europe
             faColor: "deepskyblue"
@@ -659,7 +641,6 @@ Popup
 
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_ca.svg"
                         iconWidth: flagSize
@@ -668,7 +649,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_nl.svg"
                         iconWidth: flagSize
@@ -677,7 +657,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_uk_us.svg"
                         iconWidth: flagSize
@@ -686,7 +665,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_fr.svg"
                         iconWidth: flagSize
@@ -695,7 +673,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_de.svg"
                         iconWidth: flagSize
@@ -704,7 +681,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_it.svg"
                         iconWidth: flagSize
@@ -713,7 +689,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_jp.svg"
                         iconWidth: flagSize
@@ -722,7 +697,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_pl.svg"
                         iconWidth: flagSize
@@ -731,7 +705,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_ru.svg"
                         iconWidth: flagSize
@@ -740,7 +713,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_es.svg"
                         iconWidth: flagSize
@@ -749,7 +721,6 @@ Popup
                     }
                     ContextMenuEntry
                     {
-                        iconScale: 1.0; sidePadding: 5
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_ua.svg"
                         iconWidth: flagSize
@@ -762,7 +733,6 @@ Popup
 
         ContextMenuEntry
         {
-            iconScale: 1.0; sidePadding: 5
             id: info
             faSource: FontAwesome.fa_circle_info
             faColor: "skyblue"
