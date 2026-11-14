@@ -65,8 +65,9 @@ Item
     RobotoText
     {
         id: textitem
-        x: 2
-        width: parent.width
+        // off the edge of the panel, which is also the edge of the window
+        x: 10
+        width: parent.width - x
         label: textLabel
         height: parent.height
         fontSize: UISettings.textSizeDefault
