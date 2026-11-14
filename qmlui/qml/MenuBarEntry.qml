@@ -40,7 +40,15 @@ Button
     property color faColor: UISettings.bgStrong
     property string entryText: ""
     property real mFontSize: UISettings.textSizeDefault * 0.70
-    property int iconSize: imgSource ? height - 4 - topPadding - bottomPadding : 0
+    /* The icon is a little taller than the text next to it and has air around it: at
+       the full height of the bar it was twice the size of the text and the
+       buttons ran into each other. fullHeightIcon is for the one button
+       whose picture is the point, the logo. */
+    property bool fullHeightIcon: false
+    property int iconSize: imgSource ? (fullHeightIcon ? height - 4 - topPadding - bottomPadding
+                                                        : Math.round(mFontSize * 1.15)) : 0
+    property int sidePadding: 10
+    property int iconSpacing: sidePadding
     property int iconRotation: 0
 
     property Gradient bgGradient: defBgGradient
@@ -72,8 +80,9 @@ Button
         Row
         {
             id: entryContents
-            width: btnIcon.width + btnLabel.width
-            spacing: 4
+            leftPadding: control.sidePadding
+            rightPadding: control.sidePadding
+            spacing: control.iconSpacing
 
             Image
             {
@@ -95,7 +104,7 @@ Button
                 anchors.verticalCenter: parent.verticalCenter
                 color: faColor
                 font.family: UISettings.fontAwesomeFontName
-                font.pixelSize: control.height * 0.80
+                font.pixelSize: control.fullHeightIcon ? control.height * 0.80 : control.mFontSize * 1.15
                 text: faSource
             }
 

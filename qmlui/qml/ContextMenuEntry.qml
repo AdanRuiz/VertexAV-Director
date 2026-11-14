@@ -38,7 +38,14 @@ Rectangle
 
     property int iconHeight: UISettings.iconSizeDefault
     property int iconWidth: iconHeight
-    property int itemWidth: entryRow.width + 20
+    /* The entry keeps the height its icon asks for, and the icon is drawn
+       inside it a little taller than the text, with air around: at full height it
+       was twice the size of the text and the entries looked piled up */
+    readonly property int drawnIconHeight: Math.min(iconHeight, Math.round(UISettings.textSizeDefault * 1.15))
+    readonly property int drawnIconWidth: iconHeight > 0 ? Math.round(iconWidth * drawnIconHeight / iconHeight) : 0
+    property int sidePadding: 10
+    property int leftPadding: sidePadding
+    property int itemWidth: entryRow.width + leftPadding + sidePadding
 
     signal clicked
     signal entered
@@ -72,15 +79,16 @@ Rectangle
     Row
     {
         id: entryRow
-        x: 5
-        spacing: 5
+        x: baseMenuEntry.leftPadding
+        height: parent.height
+        spacing: sidePadding
 
         Image
         {
             visible: imgSource ? true : false
             anchors.verticalCenter: parent.verticalCenter
-            height: iconHeight
-            width: iconWidth
+            height: drawnIconHeight
+            width: drawnIconWidth
             source: imgSource
             sourceSize: Qt.size(width, height)
         }
@@ -88,12 +96,12 @@ Rectangle
         Text
         {
             visible: faSource ? true : false
-            width: iconHeight
+            width: drawnIconHeight
             color: faColor
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment: Text.AlignHCenter
             font.family: UISettings.fontAwesomeFontName
-            font.pixelSize: baseMenuEntry.height * 0.80
+            font.pixelSize: drawnIconHeight
             text: faSource
         }
 

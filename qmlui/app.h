@@ -229,11 +229,22 @@ protected:
     void keyPressEvent(QKeyEvent * e) override;
     void keyReleaseEvent(QKeyEvent * e) override;
     void mousePressEvent(QMouseEvent *e) override;
+    void resizeEvent(QResizeEvent *e) override;
     bool event(QEvent *event) override;
 
 protected slots:
     void slotSceneGraphInitialized();
     void slotScreenChanged(QScreen *screen);
+
+    /** Keep the interface off the edges of the screen when the window
+     *  takes all of it.
+     *
+     *  A window has its frame around it; maximized or full screen there is
+     *  nothing, and whatever sits at the left of a panel (the first letter
+     *  of a list, the border of a field) ends up on the very edge of the
+     *  display, where it is cut or cannot be seen. The interface is drawn
+     *  a few pixels in instead, over the background of the window. */
+    void updateScreenEdgeMargin();
     void slotClosing();
     void slotClientAccessRequest(QString sessionId, QString name,
                                  QString peerAddress, quint16 peerPort);

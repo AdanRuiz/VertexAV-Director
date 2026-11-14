@@ -279,6 +279,7 @@ Popup
            reverse order, since the parent bindings evaluate bottom-up */
         ContextMenuEntry
         {
+            leftPadding: 20
             id: fileMenuEntry
             visible: menuRoot.compactMode
             height: visible ? iconHeight + 6 : 0
@@ -300,6 +301,7 @@ Popup
 
             ContextMenuEntry
             {
+                leftPadding: 20
                 id: fileNew
                 imgSource: "qrc:/filenew.svg"
                 entryText: qsTr("New project")
@@ -320,6 +322,7 @@ Popup
 
             ContextMenuEntry
             {
+                leftPadding: 20
                 id: fileOpen
                 imgSource: "qrc:/fileopen.svg"
                 entryText: qsTr("Open file")
@@ -353,6 +356,7 @@ Popup
                             delegate:
                                 ContextMenuEntry
                                 {
+                                    leftPadding: 20
                                     entryText: modelData
                                     onClicked:
                                     {
@@ -375,6 +379,7 @@ Popup
 
             ContextMenuEntry
             {
+                leftPadding: 20
                 id: fileSave
                 imgSource: "qrc:/filesave.svg"
                 entryText: qsTr("Save project")
@@ -389,6 +394,7 @@ Popup
 
             ContextMenuEntry
             {
+                leftPadding: 20
                 id: fileSaveAs
                 imgSource: "qrc:/filesaveas.svg"
                 entryText: qsTr("Save project as...")
@@ -403,6 +409,7 @@ Popup
 
             ContextMenuEntry
             {
+                leftPadding: 20
                 id: fileImport
                 imgSource: "qrc:/import.svg"
                 entryText: qsTr("Import from project")
@@ -439,6 +446,7 @@ Popup
 
             ContextMenuEntry
             {
+                leftPadding: 20
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 imgSource: "qrc:/undo.svg"
@@ -453,6 +461,7 @@ Popup
             }
             ContextMenuEntry
             {
+                leftPadding: 20
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 imgSource: "qrc:/redo.svg"
@@ -468,6 +477,7 @@ Popup
         }
         ContextMenuEntry
         {
+            leftPadding: 20
             id: netEntry
             imgSource: "qrc:/network.svg"
             //faSource: FontAwesome.fa_network_wired
@@ -494,6 +504,7 @@ Popup
 
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         id: startServer
                         entryText: qsTr("Server setup")
 
@@ -512,6 +523,7 @@ Popup
 
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         id: connectToServer
                         entryText: qsTr("Client setup")
 
@@ -533,6 +545,7 @@ Popup
 
         ContextMenuEntry
         {
+            leftPadding: 20
             imgSource: "qrc:/diptool.svg"
             entryText: qsTr("Address tool")
             onEntered: submenuItem = null
@@ -556,6 +569,7 @@ Popup
 
         ContextMenuEntry
         {
+            leftPadding: 20
             id: startupConfig
             imgSource: "qrc:/fileopen.svg"
             entryText: qsTr("Project at startup")
@@ -570,6 +584,7 @@ Popup
 
         ContextMenuEntry
         {
+            leftPadding: 20
             id: graphicsConfig
             visible: Qt.platform.os === "windows"
             height: visible ? iconHeight + 6 : 0
@@ -585,6 +600,7 @@ Popup
 
         ContextMenuEntry
         {
+            leftPadding: 20
             id: uiConfig
             imgSource: "qrc:/configure.svg"
             entryText: qsTr("UI Settings")
@@ -598,6 +614,7 @@ Popup
 
         ContextMenuEntry
         {
+            leftPadding: 20
             id: fullScreen
             faSource: FontAwesome.fa_maximize
             faColor: UISettings.fgLight
@@ -612,6 +629,7 @@ Popup
 
         ContextMenuEntry
         {
+            leftPadding: 20
             id: langEntry
             faSource: FontAwesome.fa_earth_europe
             faColor: "deepskyblue"
@@ -641,6 +659,7 @@ Popup
 
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_ca.svg"
                         iconWidth: flagSize
@@ -649,6 +668,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_nl.svg"
                         iconWidth: flagSize
@@ -657,6 +677,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_uk_us.svg"
                         iconWidth: flagSize
@@ -665,6 +686,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_fr.svg"
                         iconWidth: flagSize
@@ -673,6 +695,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_de.svg"
                         iconWidth: flagSize
@@ -681,6 +704,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_it.svg"
                         iconWidth: flagSize
@@ -689,6 +713,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_jp.svg"
                         iconWidth: flagSize
@@ -697,6 +722,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_pl.svg"
                         iconWidth: flagSize
@@ -705,6 +731,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_ru.svg"
                         iconWidth: flagSize
@@ -713,6 +740,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_es.svg"
                         iconWidth: flagSize
@@ -721,6 +749,7 @@ Popup
                     }
                     ContextMenuEntry
                     {
+                        leftPadding: 20
                         Layout.fillWidth: true
                         imgSource: "qrc:/flag_ua.svg"
                         iconWidth: flagSize
@@ -733,6 +762,7 @@ Popup
 
         ContextMenuEntry
         {
+            leftPadding: 20
             id: info
             faSource: FontAwesome.fa_circle_info
             faColor: "skyblue"

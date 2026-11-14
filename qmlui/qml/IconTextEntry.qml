@@ -35,14 +35,16 @@ Rectangle
     property int functionType: -1
     property string faSource: ""
     property color faColor: "#222"
-    property int iconSize: height - 4
+    // a little taller than the text, with air around it: see MenuBarEntry
+    property int iconSize: Math.min(height - 4, Math.round(tFontSize * 1.15))
 
     onFunctionTypeChanged: iSrc = functionManager.functionIcon(functionType)
 
     RowLayout
     {
         anchors.fill: parent
-        spacing: 5
+        anchors.leftMargin: 10
+        spacing: 10
 
         Image
         {

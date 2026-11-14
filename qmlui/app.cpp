@@ -29,6 +29,7 @@
 #include <QLibraryInfo>
 #include <QTranslator>
 #include <QQmlContext>
+#include <QQmlProperty>
 #include <QQuickItem>
 #include <QSettings>
 #include <QOpenGLFunctions>
@@ -80,6 +81,9 @@
 #include "graphicscard.h"
 
 #define SETTINGS_GEOMETRY      QStringLiteral("workspace/windowrect")
+
+/** Pixels left free around the interface when the window fills the screen */
+#define SCREEN_EDGE_MARGIN     10
 #define SETTINGS_WORKINGPATH   QStringLiteral("workspace/workingpath")
 #define SETTINGS_RECENTFILE    QStringLiteral("workspace/recent")
 #define SETTINGS_STARTUPMODE   QStringLiteral("workspace/startupmode")
@@ -125,6 +129,9 @@ App::App()
     QSettings settings;
 
     setResizeMode(QQuickView::SizeRootObjectToView);
+    // what shows around the interface when it is kept off the screen edges
+    setColor(QColor(0x16, 0x16, 0x16));
+    connect(this, &QWindow::windowStateChanged, this, [this]() { updateScreenEdgeMargin(); });
 
     updateRecentFilesList();
 
@@ -373,6 +380,8 @@ void App::startup()
 
     if (restoreWindowGeometry)
         setGeometry(rect);
+
+    updateScreenEdgeMargin();
 }
 
 void App::toggleFullscreen()
@@ -516,6 +525,36 @@ void App::keyReleaseEvent(QKeyEvent *e)
         m_contextManager->handleKeyRelease(e);
 
     QQuickView::keyReleaseEvent(e);
+}
+
+void App::resizeEvent(QResizeEvent *e)
+{
+    QQuickView::resizeEvent(e);
+    updateScreenEdgeMargin();
+}
+
+void App::updateScreenEdgeMargin()
+{
+    QQuickItem *root = rootObject();
+    if (root == nullptr)
+        return;
+
+#if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
+    const int side = 0, top = 0;
+#else
+    const Qt::WindowStates states = windowStates();
+    const bool fullScreen = states & Qt::WindowFullScreen;
+    const int side = (fullScreen || (states & Qt::WindowMaximized)) ? SCREEN_EDGE_MARGIN : 0;
+    // a maximized window still has its title bar above
+    const int top = fullScreen ? SCREEN_EDGE_MARGIN : 0;
+#endif
+
+    // MainView fills its parent with anchors, which own its geometry:
+    // the margins are the only way to move it
+    QQmlProperty(root, "anchors.leftMargin").write(side);
+    QQmlProperty(root, "anchors.rightMargin").write(side);
+    QQmlProperty(root, "anchors.topMargin").write(top);
+    QQmlProperty(root, "anchors.bottomMargin").write(side);
 }
 
 void App::mousePressEvent(QMouseEvent *e)

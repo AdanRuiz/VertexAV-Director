@@ -185,6 +185,10 @@ Rectangle
             {
                 id: actEntry
                 Layout.alignment: Qt.AlignTop
+                // the logo keeps the full height of the bar
+                fullHeightIcon: true
+                sidePadding: 0
+                iconSpacing: 4
                 imgSource: "qrc:/vertexav-director.svg"
                 entryText: qsTr("Actions")
                 onPressed: actionsMenu.open()
