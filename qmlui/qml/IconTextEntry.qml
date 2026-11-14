@@ -35,8 +35,8 @@ Rectangle
     property int functionType: -1
     property string faSource: ""
     property color faColor: "#222"
-    // as tall as the text, with air around it: see MenuBarEntry
-    property int iconSize: Math.min(height - 4, Math.round(tFontSize))
+    // a little taller than the text, with air around it: see MenuBarEntry
+    property int iconSize: Math.min(height - 4, Math.round(tFontSize * 1.15))
 
     onFunctionTypeChanged: iSrc = functionManager.functionIcon(functionType)
 
